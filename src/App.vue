@@ -1,47 +1,59 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { getRandomGrid, getWordGrid } from "./library/grid";
+
+console.log(getRandomGrid());
+console.log(getWordGrid());
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <main class="app" />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+body {
+  background: #000;
+  color: #333;
+  font-family: "Source Code Pro", monospace;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.app {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-height: -webkit-fill-available;
+  place-content: center;
+  align-items: center;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.active {
+  color: #fff;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.cell {
+  grid-row: auto / auto;
+  justify-content: center;
+  display: grid;
+  justify-items: stretch;
+}
+.grid {
+  display: grid;
+  font-size: 5vmin;
+  grid-template-rows: repeat(8, 1fr);
+  height: 90vmin;
+  margin: 5vmin;
+  width: 90vmin;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.row {
+  grid-column: auto / auto;
+  align-content: center;
+  align-items: stretch;
+  display: grid;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
 }
 </style>
