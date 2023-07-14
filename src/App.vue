@@ -1,12 +1,22 @@
 <script setup lang="ts">
+import { provide } from "vue";
 import { getRandomGrid, getWordGrid } from "./library/grid";
 
-console.log(getRandomGrid());
-console.log(getWordGrid());
+import GridRow from "./components/Grid-Row.vue";
+
+const wordGrid = getWordGrid();
+const randomGrid = getRandomGrid();
+
+provide("wordGrid", wordGrid);
+provide("randomGrid", randomGrid);
 </script>
 
 <template>
-  <main class="app" />
+  <main class="app">
+    <div class="grid">
+      <GridRow v-for="(row, index) in wordGrid" :key="index" :cells="row" :row="index" />
+    </div>
+  </main>
 </template>
 
 <style>
@@ -29,16 +39,6 @@ body {
   align-items: center;
 }
 
-.active {
-  color: #fff;
-}
-
-.cell {
-  grid-row: auto / auto;
-  justify-content: center;
-  display: grid;
-  justify-items: stretch;
-}
 .grid {
   display: grid;
   font-size: 5vmin;
@@ -46,14 +46,5 @@ body {
   height: 90vmin;
   margin: 5vmin;
   width: 90vmin;
-}
-
-.row {
-  grid-column: auto / auto;
-  align-content: center;
-  align-items: stretch;
-  display: grid;
-  display: grid;
-  grid-template-columns: repeat(13, 1fr);
 }
 </style>
