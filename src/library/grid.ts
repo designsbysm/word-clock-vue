@@ -140,8 +140,20 @@ const getEmptyGrid = () =>
     .map(() => Array<string>(13).fill(""));
 
 const getRandomGrid = () => {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const random = () => chars.charAt(Math.floor(Math.random() * chars.length));
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let chars: string[] = [];
+
+  const random = () => {
+    if (!chars.length) {
+      chars = [...alphabet];
+    }
+
+    const index = Math.floor(Math.random() * chars.length);
+    const char = chars[index];
+    chars.splice(index, 1);
+
+    return char;
+  };
 
   return getEmptyGrid().map((row) => row.map(() => random()));
 };
