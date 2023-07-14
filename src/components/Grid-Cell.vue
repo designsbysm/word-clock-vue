@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import type { Ref } from "vue";
+import { computed, inject } from "vue";
 
 const props = defineProps<{
   cell: number;
   row: number;
 }>();
 
-const wordGrid = inject("wordGrid") as string[][];
-const randomGrid = inject("randomGrid") as string[][];
+const wordCell = computed(() => {
+  const grid = inject("wordGrid") as Ref<string[][]>;
 
-const wordCell = wordGrid[props.row][props.cell];
-const randomCell = randomGrid[props.row][props.cell];
+  return grid.value[props.row][props.cell];
+});
+
+const randomCell = computed(() => {
+  const grid = inject("randomGrid") as string[][];
+
+  return grid[props.row][props.cell];
+});
 </script>
 
 <template>

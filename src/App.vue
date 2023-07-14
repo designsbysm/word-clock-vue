@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { provide } from "vue";
+import { provide, ref } from "vue";
 import { getRandomGrid, getWordGrid } from "./library/grid";
 
 import GridRow from "./components/Grid-Row.vue";
 
-const wordGrid = getWordGrid();
+const wordGrid = ref<string[][]>(getWordGrid());
 const randomGrid = getRandomGrid();
 
 provide("wordGrid", wordGrid);
 provide("randomGrid", randomGrid);
+
+setInterval(() => {
+  wordGrid.value = getWordGrid();
+}, 60000);
 </script>
 
 <template>
