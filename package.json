@@ -5,8 +5,10 @@
   "scripts": {
     "build": "run-s type-check build-only",
     "build-only": "vite build",
+    "docker": "docker buildx build --platform linux/amd64 --push -t smatthews02/word-clock:latest .",
     "format": "prettier --write src/",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "ngrok": "ngrok http 5173 --subdomain=designsbysm",
     "preview": "vite preview",
     "start": "vite",
     "test": "run-s lint type-check",
