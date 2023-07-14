@@ -25,12 +25,24 @@ setInterval(() => {
 
 <style>
 body {
-  background: #000;
-  color: #333;
   font-family: "Source Code Pro", monospace;
   font-size: 16px;
   font-weight: 300;
   margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #fff;
+    color: #ddd;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000;
+    color: #333;
+  }
 }
 
 .app {

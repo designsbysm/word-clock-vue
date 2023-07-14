@@ -21,12 +21,22 @@ const randomCell = computed(() => {
 </script>
 
 <template>
-  <div class="cell" :class="{ active: !!wordCell }">{{ wordCell || randomCell }}</div>
+  <div class="cell" :class="{ active: !!wordCell }">
+    {{ wordCell || randomCell }}
+  </div>
 </template>
 
 <style scoped>
-.active {
-  color: #fff;
+@media (prefers-color-scheme: light) {
+  .active {
+    color: #000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .active {
+    color: #fff;
+  }
 }
 
 .cell {
