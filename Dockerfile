@@ -1,13 +1,13 @@
-FROM node:16.15.0-alpine
+FROM node:18.16.1-alpine
 
-RUN npm install -g serve
+RUN npm install -g http-server
 
 WORKDIR /app
 
 COPY package.json .
-RUN npm install
+RUN yarn install
 
 COPY . .
-RUN npm run build
+RUN yarn build
 
-CMD serve --single dist
+CMD http-server dist
