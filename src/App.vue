@@ -17,8 +17,8 @@ setInterval(() => {
     <div class="grid">
       <GridRow
         v-for="(row, index) in wordGrid"
-        :activeCells="row"
-        :inactiveCells="randomGrid[index]"
+        :active="row"
+        :inactive="randomGrid[index]"
         :key="index"
       />
     </div>

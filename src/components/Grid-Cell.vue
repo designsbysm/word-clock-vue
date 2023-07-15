@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const props = defineProps<{
-  activeCell: string;
-  inactiveCell: string;
+  active: string;
+  inactive: string;
 }>();
 </script>
 
 <template>
-  <div class="cell" :class="{ active: !!props.activeCell }">
-    {{ props.activeCell || props.inactiveCell }}
+  <div class="cell" :class="{ active: !!props.active }">
+    {{ props.active || props.inactive }}
   </div>
 </template>
 

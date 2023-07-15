@@ -2,17 +2,17 @@
 import GridCell from "./Grid-Cell.vue";
 
 const props = defineProps<{
-  activeCells: string[];
-  inactiveCells: string[];
+  active: string[];
+  inactive: string[];
 }>();
 </script>
 
 <template>
   <div class="row">
     <GridCell
-      v-for="(cell, index) in props.activeCells"
-      :activeCell="cell"
-      :inactiveCell="props.inactiveCells[index]"
+      v-for="(cell, index) in props.active"
+      :active="cell"
+      :inactive="props.inactive[index]"
       :key="index"
     />
   </div>
