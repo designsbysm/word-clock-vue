@@ -1,14 +1,11 @@
 <script setup lang="ts">
-import { provide, ref } from "vue";
-import { getRandomGrid, getWordGrid } from "./library/grid";
+import { ref } from "vue";
 
+import { getRandomGrid, getWordGrid } from "./library/grid";
 import GridRow from "./components/Grid-Row.vue";
 
 const wordGrid = ref<string[][]>(getWordGrid());
 const randomGrid = getRandomGrid();
-
-provide("wordGrid", wordGrid);
-provide("randomGrid", randomGrid);
 
 setInterval(() => {
   wordGrid.value = getWordGrid();
@@ -18,7 +15,12 @@ setInterval(() => {
 <template>
   <main class="app">
     <div class="grid">
-      <GridRow v-for="(row, index) in wordGrid" :key="index" :cells="row" :row="index" />
+      <GridRow
+        v-for="(row, index) in wordGrid"
+        :activeCells="row"
+        :inactiveCells="randomGrid[index]"
+        :key="index"
+      />
     </div>
   </main>
 </template>
