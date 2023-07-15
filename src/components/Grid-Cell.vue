@@ -11,13 +11,13 @@ const props = defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .active {
   color: #000;
-}
 
-.dark .active {
-  color: #fff;
+  .dark & {
+    color: #fff;
+  }
 }
 
 .cell {
