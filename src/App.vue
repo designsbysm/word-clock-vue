@@ -35,11 +35,11 @@ body {
   font-size: 16px;
   font-weight: 300;
   margin: 0;
-}
 
-.dark body {
-  background: #000;
-  color: #333;
+  .dark & {
+    background: #000;
+    color: #333;
+  }
 }
 
 .app {

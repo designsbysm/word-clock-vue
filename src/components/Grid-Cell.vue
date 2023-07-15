@@ -14,10 +14,10 @@ const props = defineProps<{
 <style scoped>
 .active {
   color: #000;
-}
 
-.dark .active {
-  color: #fff;
+  .dark & {
+    color: #fff;
+  }
 }
 
 .cell {
