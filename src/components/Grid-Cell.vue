@@ -12,16 +12,12 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-@media (prefers-color-scheme: light) {
-  .active {
-    color: #000;
-  }
+.active {
+  color: #000;
 }
 
-@media (prefers-color-scheme: dark) {
-  .active {
-    color: #fff;
-  }
+.dark .active {
+  color: #fff;
 }
 
 .cell {
