@@ -18,7 +18,7 @@ const props = defineProps<{
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .row {
   grid-column: auto / auto;
   align-content: center;

@@ -16,7 +16,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.2.1",
-    "sass": "^1.63.6",
     "vue": "^3.3.4"
   },
   "devDependencies": {
